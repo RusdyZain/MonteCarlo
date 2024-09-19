@@ -67,7 +67,24 @@ statistic, pvalue = levene_test(group1, group2)
 Simulasi ini digunakan untuk memprediksi pendapatan penjualan dengan metode Monte Carlo berdasarkan data permintaan dan stok cat.
 
 ```python
-# Contoh kode simulasi Monte Carlo akan ditambahkan di bagian ini
+sales_per_day = []
+
+for day in range(month):
+    random_num = random.uniform(0, 1)
+    
+    demand = 0 
+    
+    for i in range(len(demand_cumulative)):
+        if random_num < demand_cumulative[i]:
+            demand = i
+            break
+    
+    sales_per_day.append(demand)
+
+print("Penjualan per hari:", sales_per_day)
+
+total_sales = np.sum(sales_per_day)
+print("Total penjualan dalam sebulan:", total_sales)
 ```
 
 ## Hasil
